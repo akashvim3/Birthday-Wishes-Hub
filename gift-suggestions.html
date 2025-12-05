@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Suggestions - Birthday Wishes Hub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/a.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <span>Birthday Wishes Hub</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="create-wish.html">Create Wish</a></li>
+                <li><a href="voice-wishes.html">Voice Wishes</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="group-wishes.html">Group Wishes</a></li>
+                <li><a href="gift-suggestions.html" class="active">Gift Ideas</a></li>
+                <li><a href="party-planner.html">Party Planner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="gift-section">
+        <div class="container">
+            <h1 class="page-title">🎁 Smart Gift Suggestions</h1>
+            <p class="page-subtitle">AI-powered personalized gift recommendations for every birthday</p>
+
+            <!-- Gift Finder Tool -->
+            <div class="gift-finder">
+                <div class="finder-card">
+                    <h2><i class="fas fa-magic"></i> Find the Perfect Gift</h2>
+                    <form id="giftFinderForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> Who are you buying for?</label>
+                                <label for="giftRecipient"></label><input type="text" id="giftRecipient" placeholder="Enter name">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-birthday-cake"></i> Age</label>
+                                <label for="giftAge"></label><input type="number" id="giftAge" placeholder="Age">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-venus-mars"></i> Gender</label>
+                                <label for="giftGender"></label><select id="giftGender">
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="any">Prefer not to say</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-heart"></i> Relationship</label>
+                                <label for="giftRelationship"></label><select id="giftRelationship">
+                                    <option value="friend">Friend</option>
+                                    <option value="family">Family</option>
+                                    <option value="partner">Partner</option>
+                                    <option value="colleague">Colleague</option>
+                                    <option value="child">Child</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-dollar-sign"></i> Budget Range</label>
+                            <div class="budget-slider">
+                                <label for="budgetSlider"></label><input type="range" id="budgetSlider" min="10" max="500" value="50" step="10">
+                                <div class="budget-display">
+                                    <span>$10</span>
+                                    <span id="budgetValue">$50</span>
+                                    <span>$500+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-lightbulb"></i> Interests & Hobbies (Select all that apply)</label>
+                            <div class="interest-tags">
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="technology">
+                                    <span>Technology</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="sports">
+                                    <span>Sports</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="reading">
+                                    <span>Reading</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="music">
+                                    <span>Music</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="art">
+                                    <span>Art & Crafts</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="cooking">
+                                    <span>Cooking</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="gaming">
+                                    <span>Gaming</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="fashion">
+                                    <span>Fashion</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="travel">
+                                    <span>Travel</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="fitness">
+                                    <span>Fitness</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="photography">
+                                    <span>Photography</span>
+                                </label>
+                                <label class="tag-checkbox">
+                                    <input type="checkbox" value="pets">
+                                    <span>Pets</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-tag"></i> Gift Type Preference</label>
+                            <label for="giftType"></label><select id="giftType">
+                                <option value="any">Any Type</option>
+                                <option value="physical">Physical Gifts</option>
+                                <option value="experience">Experiences</option>
+                                <option value="subscription">Subscriptions</option>
+                                <option value="handmade">Handmade/DIY</option>
+                                <option value="digital">Digital Gifts</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-search"></i> Find Gift Ideas
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Gift Results -->
+            <div class="gift-results" id="giftResults" style="display: none;">
+                <h2 class="section-title">Personalized Gift Recommendations</h2>
+                <div class="results-filter">
+                    <button class="filter-tag active" data-category="all">All</button>
+                    <button class="filter-tag" data-category="top-rated">Top Rated</button>
+                    <button class="filter-tag" data-category="under-budget">Under Budget</button>
+                    <button class="filter-tag" data-category="trending">Trending</button>
+                    <button class="filter-tag" data-category="unique">Unique</button>
+                </div>
+
+                <div class="gifts-grid" id="giftsGrid">
+                    <!-- Gift items will be generated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Popular Gift Categories -->
+            <div class="gift-categories">
+                <h2 class="section-title">Popular Gift Categories</h2>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <i class="fas fa-laptop"></i>
+                        <h4>Tech & Gadgets</h4>
+                        <p>Smart devices, accessories, and more</p>
+                        <button class="btn btn-small">Explore</button>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-book"></i>
+                        <h4>Books & Media</h4>
+                        <p>Best sellers, audiobooks, movies</p>
+                        <button class="btn btn-small">Explore</button>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-gem"></i>
+                        <h4>Jewelry & Accessories</h4>
+                        <p>Watches, necklaces, bracelets</p>
+                        <button class="btn btn-small">Explore</button>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-spa"></i>
+                        <h4>Self-Care & Wellness</h4>
+                        <p>Spa sets, aromatherapy, relaxation</p>
+                        <button class="btn btn-small">Explore</button>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-utensils"></i>
+                        <h4>Food & Drink</h4>
+                        <p>Gourmet baskets, wine, chocolate</p>
+                        <button class="btn btn-small">Explore</button>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-palette"></i>
+                        <h4>Art & Creativity</h4>
+                        <p>Supplies, kits, inspiration</p>
+                        <button class="btn btn-small">Explore</button>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-home"></i>
+                        <h4>Home & Decor</h4>
+                        <p>Furniture, decorations, essentials</p>
+                        <button class="btn btn-small">Explore</button>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-plane"></i>
+                        <h4>Experiences</h4>
+                        <p>Adventures, classes, events</p>
+                        <button class="btn btn-small">Explore</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gift Ideas by Age -->
+            <div class="gifts-by-age">
+                <h2 class="section-title">Gift Ideas by Age</h2>
+                <div class="age-tabs">
+                    <button class="age-tab active" data-age="kids">Kids (0-12)</button>
+                    <button class="age-tab" data-age="teens">Teens (13-19)</button>
+                    <button class="age-tab" data-age="twenties">20s</button>
+                    <button class="age-tab" data-age="thirties">30s</button>
+                    <button class="age-tab" data-age="forties">40s+</button>
+                </div>
+                <div class="age-content active" id="kids">
+                    <div class="quick-ideas">
+                        <div class="idea-item">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Educational Games</span>
+                        </div>
+                        <div class="idea-item">
+                            <i class="fas fa-book-open"></i>
+                            <span>Picture Books</span>
+                        </div>
+                        <div class="idea-item">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <span>Puzzles & STEM Toys</span>
+                        </div>
+                        <div class="idea-item">
+                            <i class="fas fa-bicycle"></i>
+                            <span>Outdoor Toys</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trending Gifts -->
+            <div class="trending-gifts">
+                <h2 class="section-title">🔥 Trending Gifts This Month</h2>
+                <div class="trending-scroll">
+                    <div class="trending-item">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&h=300&fit=crop" alt="Headphones">
+                        <div class="trending-info">
+                            <h4>Wireless Headphones</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.8</span>
+                            </div>
+                            <p class="price">$79 - $299</p>
+                        </div>
+                    </div>
+                    <div class="trending-item">
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=300&h=300&fit=crop" alt="Book">
+                        <div class="trending-info">
+                            <h4>Personalized Journal</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>5.0</span>
+                            </div>
+                            <p class="price">$25 - $45</p>
+                        </div>
+                    </div>
+                    <div class="trending-item">
+                        <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=300&h=300&fit=crop" alt="Plant">
+                        <div class="trending-info">
+                            <h4>Indoor Plant Set</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>4.5</span>
+                            </div>
+                            <p class="price">$30 - $60</p>
+                        </div>
+                    </div>
+                    <div class="trending-item">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=300&fit=crop" alt="Cosmetics">
+                        <div class="trending-info">
+                            <h4>Luxury Skincare Set</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>4.7</span>
+                            </div>
+                            <p class="price">$50 - $150</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-birthday-cake"></i> Birthday Wishes Hub</h3>
+                <p>Creating magical moments with personalized birthday wishes since 2025</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-wish.html">Create Wish</a></li>
+                    <li><a href="voice-wishes.html">Voice Wishes</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="group-wishes.html">Group Wishes</a></li>
+                    <li><a href="gift-suggestions.html">Gift Ideas</a></li>
+                    <li><a href="party-planner.html">Party Planner</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe for birthday tips and inspiration</p>
+                <form class="newsletter-form">
+                    <label>
+                        <input type="email" placeholder="Your email address" required>
+                    </label>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Birthday Wishes Hub. All rights reserved. Made with <i class="fas fa-heart"></i></p>
+        </div>
+    </footer>
+
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3><i class="fas fa-robot"></i> Birthday Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>👋 Hi! I'm your Birthday Assistant. How can I help you create the perfect birthday wish today?</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <label for="chatbotInput"></label><input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/gift-suggestions.js"></script>
+</body>
+</html>

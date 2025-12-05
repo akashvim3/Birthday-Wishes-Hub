@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Planner - Birthday Wishes Hub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/a.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <span>Birthday Wishes Hub</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="create-wish.html">Create Wish</a></li>
+                <li><a href="voice-wishes.html">Voice Wishes</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="group-wishes.html">Group Wishes</a></li>
+                <li><a href="gift-suggestions.html">Gift Ideas</a></li>
+                <li><a href="party-planner.html" class="active">Party Planner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="party-section">
+        <div class="container">
+            <h1 class="page-title">🎉 Birthday Party Planner</h1>
+            <p class="page-subtitle">Plan the perfect birthday party with our comprehensive planning tools</p>
+
+            <!-- Party Dashboard -->
+            <div class="party-dashboard">
+                <div class="dashboard-card">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>Active Plans</h3>
+                    <p class="dashboard-number">3</p>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Completed Tasks</h3>
+                    <p class="dashboard-number">24</p>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Upcoming Events</h3>
+                    <p class="dashboard-number">2</p>
+                </div>
+                <div class="dashboard-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Budget Used</h3>
+                    <p class="dashboard-number">$850</p>
+                </div>
+            </div>
+
+            <!-- Create New Party Plan -->
+            <div class="create-party">
+                <button class="btn btn-primary btn-large" id="createPartyBtn">
+                    <i class="fas fa-plus-circle"></i> Create New Party Plan
+                </button>
+            </div>
+
+            <!-- Active Party Plans -->
+            <div class="active-parties">
+                <h2 class="section-title">Your Party Plans</h2>
+                <div class="parties-grid">
+                    <div class="party-card">
+                        <div class="party-header">
+                            <div class="party-badge upcoming">Upcoming</div>
+                            <button class="party-menu"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="party-body">
+                            <h3>Sarah's 30th Birthday Bash</h3>
+                            <p class="party-date"><i class="fas fa-calendar"></i> November 22, 2025</p>
+                            <p class="party-location"><i class="fas fa-map-marker-alt"></i> Downtown Venue</p>
+                            <p class="party-guests"><i class="fas fa-users"></i> 45 Guests</p>
+
+                            <div class="party-progress">
+                                <div class="progress-header">
+                                    <span>Planning Progress</span>
+                                    <span>65%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="party-tasks">
+                                <div class="task-summary">
+                                    <span><i class="fas fa-check"></i> 13 tasks completed</span>
+                                    <span><i class="fas fa-clock"></i> 7 pending</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="party-actions">
+                            <button class="btn btn-primary">View Details</button>
+                            <button class="btn btn-secondary">Edit Plan</button>
+                        </div>
+                    </div>
+
+                    <div class="party-card">
+                        <div class="party-header">
+                            <div class="party-badge planning">Planning</div>
+                            <button class="party-menu"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="party-body">
+                            <h3>Kids Birthday Party</h3>
+                            <p class="party-date"><i class="fas fa-calendar"></i> December 5, 2025</p>
+                            <p class="party-location"><i class="fas fa-map-marker-alt"></i> Home</p>
+                            <p class="party-guests"><i class="fas fa-users"></i> 20 Guests</p>
+
+                            <div class="party-progress">
+                                <div class="progress-header">
+                                    <span>Planning Progress</span>
+                                    <span>35%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 35%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="party-tasks">
+                                <div class="task-summary">
+                                    <span><i class="fas fa-check"></i> 7 tasks completed</span>
+                                    <span><i class="fas fa-clock"></i> 13 pending</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="party-actions">
+                            <button class="btn btn-primary">View Details</button>
+                            <button class="btn btn-secondary">Edit Plan</button>
+                        </div>
+                    </div>
+
+                    <div class="party-card create-new-party">
+                        <i class="fas fa-plus-circle"></i>
+                        <h3>Plan a New Party</h3>
+                        <p>Start organizing your next birthday celebration</p>
+                        <button class="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Party Planning Checklist -->
+            <div class="planning-checklist">
+                <h2 class="section-title">Essential Party Planning Checklist</h2>
+                <div class="checklist-categories">
+                    <div class="checklist-category">
+                        <h3><i class="fas fa-calendar-alt"></i> 4-6 Weeks Before</h3>
+                        <ul class="checklist-items">
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Set date and time</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Choose venue or location</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Determine party theme</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Create guest list</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Set budget</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3><i class="fas fa-tasks"></i> 2-3 Weeks Before</h3>
+                        <ul class="checklist-items">
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Send invitations</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Order birthday cake</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Plan menu and catering</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Book entertainment/activities</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Purchase decorations</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3><i class="fas fa-clock"></i> 1 Week Before</h3>
+                        <ul class="checklist-items">
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Confirm RSVPs</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Finalize menu quantities</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Buy party supplies</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Prepare party favors</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Plan party games/activities</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist-category">
+                        <h3><i class="fas fa-star"></i> Day Before</h3>
+                        <ul class="checklist-items">
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Clean and prepare venue</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Set up decorations</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Prepare food that can be made ahead</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Charge camera/phone batteries</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Review timeline and schedule</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Budget Calculator -->
+            <div class="budget-calculator">
+                <h2 class="section-title">Party Budget Calculator</h2>
+                <div class="calculator-card">
+                    <div class="calculator-inputs">
+                        <div class="budget-item">
+                            <label>Venue / Location</label>
+                            <label>
+                                <input type="number" placeholder="$0" class="budget-input" data-category="venue">
+                            </label>
+                        </div>
+                        <div class="budget-item">
+                            <label>Food & Catering</label>
+                            <label>
+                                <input type="number" placeholder="$0" class="budget-input" data-category="food">
+                            </label>
+                        </div>
+                        <div class="budget-item">
+                            <label>Decorations</label>
+                            <label>
+                                <input type="number" placeholder="$0" class="budget-input" data-category="decorations">
+                            </label>
+                        </div>
+                        <div class="budget-item">
+                            <label>Entertainment</label>
+                            <label>
+                                <input type="number" placeholder="$0" class="budget-input" data-category="entertainment">
+                            </label>
+                        </div>
+                        <div class="budget-item">
+                            <label>Birthday Cake</label>
+                            <label>
+                                <input type="number" placeholder="$0" class="budget-input" data-category="cake">
+                            </label>
+                        </div>
+                        <div class="budget-item">
+                            <label>Party Favors</label>
+                            <label>
+                                <input type="number" placeholder="$0" class="budget-input" data-category="favors">
+                            </label>
+                        </div>
+                        <div class="budget-item">
+                            <label>Invitations</label>
+                            <label>
+                                <input type="number" placeholder="$0" class="budget-input" data-category="invitations">
+                            </label>
+                        </div>
+                        <div class="budget-item">
+                            <label>Miscellaneous</label>
+                            <label>
+                                <input type="number" placeholder="$0" class="budget-input" data-category="misc">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="budget-summary">
+                        <div class="budget-chart">
+                            <canvas id="budgetChart" width="200" height="200"></canvas>
+                        </div>
+                        <div class="budget-total">
+                            <h3>Total Budget</h3>
+                            <p class="total-amount" id="totalBudget">$0</p>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-download"></i> Export Budget
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Party Theme Ideas -->
+            <div class="party-themes">
+                <h2 class="section-title">Popular Party Themes</h2>
+                <div class="themes-grid">
+                    <div class="theme-card">
+                        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Classic">
+                        <div class="theme-overlay">
+                            <h4>Classic Celebration</h4>
+                            <p>Timeless balloons and decorations</p>
+                            <button class="btn btn-small">Use Theme</button>
+                        </div>
+                    </div>
+                    <div class="theme-card">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop" alt="Elegant">
+                        <div class="theme-overlay">
+                            <h4>Elegant & Sophisticated</h4>
+                            <p>Perfect for milestone birthdays</p>
+                            <button class="btn btn-small">Use Theme</button>
+                        </div>
+                    </div>
+                    <div class="theme-card">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=300&fit=crop" alt="Garden">
+                        <div class="theme-overlay">
+                            <h4>Garden Party</h4>
+                            <p>Outdoor celebration vibes</p>
+                            <button class="btn btn-small">Use Theme</button>
+                        </div>
+                    </div>
+                    <div class="theme-card">
+                        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&h=300&fit=crop" alt="Kids">
+                        <div class="theme-overlay">
+                            <h4>Kids Fun Party</h4>
+                            <p>Colorful and playful themes</p>
+                            <button class="btn btn-small">Use Theme</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Party Timeline Template -->
+            <div class="party-timeline">
+                <h2 class="section-title">Sample Party Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">2:00 PM</div>
+                        <div class="timeline-content">
+                            <h4>Guests Arrival</h4>
+                            <p>Welcome guests, coat check, welcome drinks</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">2:30 PM</div>
+                        <div class="timeline-content">
+                            <h4>Icebreaker Games</h4>
+                            <p>Get everyone mingling and comfortable</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">3:00 PM</div>
+                        <div class="timeline-content">
+                            <h4>Main Activities</h4>
+                            <p>Planned entertainment and games</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">4:00 PM</div>
+                        <div class="timeline-content">
+                            <h4>Cake & Singing</h4>
+                            <p>Birthday cake ceremony</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">4:30 PM</div>
+                        <div class="timeline-content">
+                            <h4>Food Service</h4>
+                            <p>Main meal or snacks</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">5:30 PM</div>
+                        <div class="timeline-content">
+                            <h4>Party Wind Down</h4>
+                            <p>Goodbyes and party favors</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Create Party Modal -->
+    <div class="modal" id="createPartyModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3><i class="fas fa-magic"></i> Create New Party Plan</h3>
+                <button class="modal-close" id="closePartyModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="partyPlanForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-birthday-cake"></i> Party Name</label>
+                        <label>
+                            <input type="text" required placeholder="E.g., Sarah's 30th Birthday Bash">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Party Date</label>
+                            <label>
+                                <input type="date" required>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clock"></i> Start Time</label>
+                            <label>
+                                <input type="time" value="14:00">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-map-marker-alt"></i> Venue</label>
+                        <label>
+                            <input type="text" placeholder="Location or address">
+                        </label>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-users"></i> Expected Guests</label>
+                            <label>
+                                <input type="number" value="20" min="1">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-dollar-sign"></i> Total Budget</label>
+                            <label>
+                                <input type="number" placeholder="1000">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-palette"></i> Party Theme</label>
+                        <label>
+                            <select>
+                                <option>Classic Celebration</option>
+                                <option>Elegant & Sophisticated</option>
+                                <option>Garden Party</option>
+                                <option>Beach Party</option>
+                                <option>Hollywood Glamour</option>
+                                <option>Sports Theme</option>
+                                <option>Custom Theme</option>
+                            </select>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i> Start Planning
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-birthday-cake"></i> Birthday Wishes Hub</h3>
+                <p>Creating magical moments with personalized birthday wishes since 2025</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-wish.html">Create Wish</a></li>
+                    <li><a href="voice-wishes.html">Voice Wishes</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="group-wishes.html">Group Wishes</a></li>
+                    <li><a href="gift-suggestions.html">Gift Ideas</a></li>
+                    <li><a href="party-planner.html">Party Planner</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe for birthday tips and inspiration</p>
+                <form class="newsletter-form">
+                    <label>
+                        <input type="email" placeholder="Your email address" required>
+                    </label>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Birthday Wishes Hub. All rights reserved. Made with <i class="fas fa-heart"></i></p>
+        </div>
+    </footer>
+
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3><i class="fas fa-robot"></i> Birthday Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>👋 Hi! I'm your Birthday Assistant. How can I help you create the perfect birthday wish today?</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <label for="chatbotInput"></label><input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/party-planner.js"></script>
+</body>
+</html>

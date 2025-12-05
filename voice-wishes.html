@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Wishes - Birthday Wishes Hub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/a.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <span>Birthday Wishes Hub</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="create-wish.html">Create Wish</a></li>
+                <li><a href="voice-wishes.html" class="active">Voice Wishes</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="group-wishes.html">Group Wishes</a></li>
+                <li><a href="gift-suggestions.html">Gift Ideas</a></li>
+                <li><a href="party-planner.html">Party Planner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="voice-section">
+        <div class="container">
+            <h1 class="page-title">🎤 Voice Birthday Wishes</h1>
+            <p class="page-subtitle">Record a personalized voice message and create a beautiful audio card</p>
+
+            <div class="voice-container">
+                <div class="voice-recorder">
+                    <div class="recorder-card">
+                        <div class="recorder-header">
+                            <i class="fas fa-microphone-alt"></i>
+                            <h3>Voice Recorder</h3>
+                        </div>
+
+                        <div class="recorder-display">
+                            <canvas id="audioVisualizer" width="600" height="200"></canvas>
+                            <div class="time-display" id="timeDisplay">00:00</div>
+                            <div class="recording-status" id="recordingStatus">Ready to Record</div>
+                        </div>
+
+                        <div class="recorder-controls">
+                            <button class="control-btn record-btn" id="recordBtn">
+                                <i class="fas fa-circle"></i>
+                                <span>Start Recording</span>
+                            </button>
+                            <button class="control-btn stop-btn" id="stopBtn" disabled>
+                                <i class="fas fa-stop"></i>
+                                <span>Stop</span>
+                            </button>
+                            <button class="control-btn play-btn" id="playBtn" disabled>
+                                <i class="fas fa-play"></i>
+                                <span>Play</span>
+                            </button>
+                            <button class="control-btn delete-btn" id="deleteBtn" disabled>
+                                <i class="fas fa-trash"></i>
+                                <span>Delete</span>
+                            </button>
+                        </div>
+
+                        <div class="audio-player" id="audioPlayer" style="display: none;">
+                            <audio controls id="audioElement"></audio>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Recipient's Name</label>
+                            <label for="voiceRecipient"></label><input type="text" id="voiceRecipient" placeholder="Who is this message for?">
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-palette"></i> Audio Card Theme</label>
+                            <div class="audio-themes">
+                                <div class="audio-theme selected" data-theme="gradient1">
+                                    <div class="theme-preview gradient1"></div>
+                                    <span>Sunset</span>
+                                </div>
+                                <div class="audio-theme" data-theme="gradient2">
+                                    <div class="theme-preview gradient2"></div>
+                                    <span>Ocean</span>
+                                </div>
+                                <div class="audio-theme" data-theme="gradient3">
+                                    <div class="theme-preview gradient3"></div>
+                                    <span>Forest</span>
+                                </div>
+                                <div class="audio-theme" data-theme="gradient4">
+                                    <div class="theme-preview gradient4"></div>
+                                    <span>Party</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recorder-actions">
+                            <button class="btn btn-primary btn-large" id="createAudioCard">
+                                <i class="fas fa-magic"></i> Create Audio Card
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="voice-preview">
+                    <div class="audio-card-preview" id="audioCardPreview">
+                        <div class="audio-card gradient1">
+                            <div class="card-decoration">
+                                <i class="fas fa-birthday-cake"></i>
+                                <i class="fas fa-gift"></i>
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <h2>Happy Birthday!</h2>
+                            <div class="recipient-name" id="displayRecipient">Someone Special</div>
+                            <div class="audio-wave">
+                                <span></span><span></span><span></span><span></span><span></span>
+                                <span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <p class="audio-label">
+                                <i class="fas fa-headphones"></i> Tap to Play Voice Message
+                            </p>
+                            <div class="audio-duration" id="audioDuration">0:00</div>
+                        </div>
+                    </div>
+
+                    <div class="preview-actions">
+                        <button class="btn btn-secondary" id="downloadAudioBtn" disabled>
+                            <i class="fas fa-download"></i> Download Audio
+                        </button>
+                        <button class="btn btn-success" id="shareAudioBtn" disabled>
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                    </div>
+
+                    <div class="voice-tips">
+                        <h4><i class="fas fa-lightbulb"></i> Recording Tips</h4>
+                        <ul>
+                            <li>Find a quiet place to record</li>
+                            <li>Speak clearly and at a moderate pace</li>
+                            <li>Keep your message between 30-60 seconds</li>
+                            <li>Smile while recording - it shows in your voice!</li>
+                            <li>Practice your message before recording</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pre-recorded Voice Wishes Gallery -->
+            <div class="voice-gallery">
+                <h2 class="section-title">Recent Voice Wishes</h2>
+                <div class="voice-cards-grid">
+                    <div class="voice-card">
+                        <div class="voice-card-header gradient1">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="voice-card-body">
+                            <h4>Sarah's Birthday Wish</h4>
+                            <p>For: Michael</p>
+                            <span class="duration">0:45</span>
+                        </div>
+                    </div>
+                    <div class="voice-card">
+                        <div class="voice-card-header gradient2">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="voice-card-body">
+                            <h4>Family Message</h4>
+                            <p>For: Mom</p>
+                            <span class="duration">1:20</span>
+                        </div>
+                    </div>
+                    <div class="voice-card">
+                        <div class="voice-card-header gradient3">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="voice-card-body">
+                            <h4>Best Friend Wishes</h4>
+                            <p>For: Emma</p>
+                            <span class="duration">0:38</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-birthday-cake"></i> Birthday Wishes Hub</h3>
+                <p>Creating magical moments with personalized birthday wishes since 2025</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-wish.html">Create Wish</a></li>
+                    <li><a href="voice-wishes.html">Voice Wishes</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="group-wishes.html">Group Wishes</a></li>
+                    <li><a href="gift-suggestions.html">Gift Ideas</a></li>
+                    <li><a href="party-planner.html">Party Planner</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe for birthday tips and inspiration</p>
+                <form class="newsletter-form">
+                    <label>
+                        <input type="email" placeholder="Your email address" required>
+                    </label>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Birthday Wishes Hub. All rights reserved. Made with <i class="fas fa-heart"></i></p>
+        </div>
+    </footer>
+
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3><i class="fas fa-robot"></i> Birthday Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>👋 Hi! I'm your Birthday Assistant. How can I help you create the perfect birthday wish today?</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <label for="chatbotInput"></label><input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/voice-recorder.js"></script>
+</body>
+</html>

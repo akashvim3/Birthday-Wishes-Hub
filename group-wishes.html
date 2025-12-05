@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Wishes - Birthday Wishes Hub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/a.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <span>Birthday Wishes Hub</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="create-wish.html">Create Wish</a></li>
+                <li><a href="voice-wishes.html">Voice Wishes</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="group-wishes.html" class="active">Group Wishes</a></li>
+                <li><a href="gift-suggestions.html">Gift Ideas</a></li>
+                <li><a href="party-planner.html">Party Planner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="group-section">
+        <div class="container">
+            <h1 class="page-title">👥 Group Birthday Wishes</h1>
+            <p class="page-subtitle">Create collaborative birthday cards with messages from multiple people</p>
+
+            <div class="group-hero">
+                <div class="group-hero-content">
+                    <h2>How Group Wishes Work</h2>
+                    <div class="steps-grid">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <h4>Create Card</h4>
+                            <p>Start a group birthday card</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <h4>Invite Contributors</h4>
+                            <p>Share link with friends</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <h4>Collect Messages</h4>
+                            <p>Everyone adds their wish</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <h4>Send Together</h4>
+                            <p>Deliver on their birthday</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-large" id="createGroupCard">
+                        <i class="fas fa-plus-circle"></i> Create Group Card
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active Group Cards -->
+            <div class="active-groups">
+                <h2 class="section-title">Your Active Group Cards</h2>
+                <div class="group-cards-grid">
+                    <div class="group-card">
+                        <div class="group-card-header">
+                            <div class="group-card-badge active">Active</div>
+                            <button class="group-menu-btn"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="group-card-body">
+                            <div class="recipient-avatar">MJ</div>
+                            <h3>Michael's Birthday</h3>
+                            <p class="birthday-date"><i class="fas fa-calendar"></i> November 15, 2025</p>
+
+                            <div class="contributors">
+                                <div class="contributor-avatars">
+                                    <div class="avatar">SA</div>
+                                    <div class="avatar">JD</div>
+                                    <div class="avatar">EM</div>
+                                    <div class="avatar more">+5</div>
+                                </div>
+                                <p>8 people contributed</p>
+                            </div>
+
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%;"></div>
+                            </div>
+                            <p class="progress-text">12 / 15 messages collected</p>
+                        </div>
+                        <div class="group-card-actions">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-eye"></i> View Card
+                            </button>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-share"></i> Invite More
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="group-card">
+                        <div class="group-card-header">
+                            <div class="group-card-badge pending">Pending</div>
+                            <button class="group-menu-btn"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                        <div class="group-card-body">
+                            <div class="recipient-avatar">SJ</div>
+                            <h3>Sarah's 30th Birthday</h3>
+                            <p class="birthday-date"><i class="fas fa-calendar"></i> November 22, 2025</p>
+
+                            <div class="contributors">
+                                <div class="contributor-avatars">
+                                    <div class="avatar">DM</div>
+                                    <div class="avatar">LK</div>
+                                    <div class="avatar more">+3</div>
+                                </div>
+                                <p>5 people contributed</p>
+                            </div>
+
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 35%;"></div>
+                            </div>
+                            <p class="progress-text">5 / 20 messages collected</p>
+                        </div>
+                        <div class="group-card-actions">
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-eye"></i> View Card
+                            </button>
+                            <button class="btn btn-primary">
+                                <i class="fas fa-share"></i> Invite More
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="group-card create-new">
+                        <i class="fas fa-plus-circle"></i>
+                        <h3>Create New Group Card</h3>
+                        <p>Start collecting birthday wishes from friends and family</p>
+                        <button class="btn btn-primary">Get Started</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Invitations -->
+            <div class="pending-invites">
+                <h2 class="section-title">Pending Invitations</h2>
+                <div class="invites-list">
+                    <div class="invite-item">
+                        <div class="invite-avatar">EJ</div>
+                        <div class="invite-info">
+                            <h4>Emma Johnson's Birthday</h4>
+                            <p>Invited by Sarah Evans • Due: Nov 20</p>
+                        </div>
+                        <div class="invite-actions">
+                            <button class="btn btn-small btn-primary">Add Message</button>
+                            <button class="btn btn-small btn-secondary">Decline</button>
+                        </div>
+                    </div>
+                    <div class="invite-item">
+                        <div class="invite-avatar">DL</div>
+                        <div class="invite-info">
+                            <h4>David Lopez's Surprise Party</h4>
+                            <p>Invited by Mike Turner • Due: Nov 18</p>
+                        </div>
+                        <div class="invite-actions">
+                            <button class="btn btn-small btn-primary">Add Message</button>
+                            <button class="btn btn-small btn-secondary">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Templates -->
+            <div class="group-templates">
+                <h2 class="section-title">Group Card Templates</h2>
+                <div class="templates-scroll">
+                    <div class="template-card-group">
+                        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=400&h=300&fit=crop" alt="Classic">
+                        <h4>Classic Birthday</h4>
+                        <button class="btn btn-small">Use Template</button>
+                    </div>
+                    <div class="template-card-group">
+                        <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=300&fit=crop" alt="Milestone">
+                        <h4>Milestone Celebration</h4>
+                        <button class="btn btn-small">Use Template</button>
+                    </div>
+                    <div class="template-card-group">
+                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400&h=300&fit=crop" alt="Office">
+                        <h4>Office Party</h4>
+                        <button class="btn btn-small">Use Template</button>
+                    </div>
+                    <div class="template-card-group">
+                        <img src="https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=400&h=300&fit=crop" alt="Family">
+                        <h4>Family Gathering</h4>
+                        <button class="btn btn-small">Use Template</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Create Group Card Modal -->
+    <div class="modal" id="createGroupModal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3><i class="fas fa-users"></i> Create Group Birthday Card</h3>
+                <button class="modal-close" id="closeGroupModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="groupCardForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Who is this card for?</label>
+                        <label for="groupRecipient"></label><input type="text" id="groupRecipient" required placeholder="Enter recipient's name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Birthday Date</label>
+                            <label for="groupBirthday"></label><input type="date" id="groupBirthday" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clock"></i> Send Time</label>
+                            <label for="groupSendTime"></label><input type="time" id="groupSendTime" value="09:00">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-palette"></i> Card Template</label>
+                        <div class="template-options">
+                            <div class="template-option selected" data-template="classic">
+                                <div class="template-thumb" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                                <span>Classic</span>
+                            </div>
+                            <div class="template-option" data-template="elegant">
+                                <div class="template-thumb" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                                <span>Elegant</span>
+                            </div>
+                            <div class="template-option" data-template="fun">
+                                <div class="template-thumb" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                                <span>Fun</span>
+                            </div>
+                            <div class="template-option" data-template="professional">
+                                <div class="template-thumb" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                                <span>Professional</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Invite Contributors (Email addresses, comma-separated)</label>
+                        <label for="groupInvites"></label><textarea id="groupInvites" rows="3" placeholder="sarah@example.com, john@example.com, emma@example.com"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-users"></i> Expected Contributors</label>
+                        <label for="expectedContributors"></label><input type="number" id="expectedContributors" value="10" min="2" max="100">
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="allowAnonymous">
+                            <span>Allow anonymous messages</span>
+                        </label>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="notifyContributors" checked>
+                            <span>Send email reminders to contributors</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-magic"></i> Create Group Card
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-birthday-cake"></i> Birthday Wishes Hub</h3>
+                <p>Creating magical moments with personalized birthday wishes since 2025</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-wish.html">Create Wish</a></li>
+                    <li><a href="voice-wishes.html">Voice Wishes</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="group-wishes.html">Group Wishes</a></li>
+                    <li><a href="gift-suggestions.html">Gift Ideas</a></li>
+                    <li><a href="party-planner.html">Party Planner</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe for birthday tips and inspiration</p>
+                <form class="newsletter-form">
+                    <label>
+                        <input type="email" placeholder="Your email address" required>
+                    </label>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Birthday Wishes Hub. All rights reserved. Made with <i class="fas fa-heart"></i></p>
+        </div>
+    </footer>
+
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3><i class="fas fa-robot"></i> Birthday Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>👋 Hi! I'm your Birthday Assistant. How can I help you create the perfect birthday wish today?</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <label for="chatbotInput"></label><input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/group-wishes.js"></script>
+</body>
+</html>

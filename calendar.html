@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Calendar - Birthday Wishes Hub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/calendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-birthday-cake"></i>
+                <span>Birthday Wishes Hub</span>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="create-wish.html">Create Wish</a></li>
+                <li><a href="voice-wishes.html">Voice Wishes</a></li>
+                <li><a href="calendar.html" class="active">Calendar</a></li>
+                <li><a href="group-wishes.html">Group Wishes</a></li>
+                <li><a href="gift-suggestions.html">Gift Ideas</a></li>
+                <li><a href="party-planner.html">Party Planner</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="calendar-section">
+        <div class="container">
+            <h1 class="page-title">📅 Birthday Calendar</h1>
+            <p class="page-subtitle">Never miss a birthday! Track and manage all important dates</p>
+
+            <div class="calendar-container">
+                <div class="calendar-sidebar">
+                    <button class="btn btn-primary btn-large" id="addBirthdayBtn">
+                        <i class="fas fa-plus"></i> Add Birthday
+                    </button>
+
+                    <div class="upcoming-birthdays">
+                        <h3><i class="fas fa-bell"></i> Upcoming Birthdays</h3>
+                        <div class="birthday-list" id="upcomingList">
+                            <div class="birthday-item today">
+                                <div class="birthday-avatar">JD</div>
+                                <div class="birthday-info">
+                                    <h4>John Doe</h4>
+                                    <p><i class="fas fa-calendar"></i> Today</p>
+                                    <span class="age-badge">Turns 28</span>
+                                </div>
+                                <button class="wish-btn"><i class="fas fa-gift"></i></button>
+                            </div>
+                            <div class="birthday-item tomorrow">
+                                <div class="birthday-avatar">SE</div>
+                                <div class="birthday-info">
+                                    <h4>Sarah Evans</h4>
+                                    <p><i class="fas fa-calendar"></i> Tomorrow</p>
+                                    <span class="age-badge">Turns 32</span>
+                                </div>
+                                <button class="wish-btn"><i class="fas fa-gift"></i></button>
+                            </div>
+                            <div class="birthday-item">
+                                <div class="birthday-avatar">ML</div>
+                                <div class="birthday-info">
+                                    <h4>Mike Lopez</h4>
+                                    <p><i class="fas fa-calendar"></i> Nov 12</p>
+                                    <span class="age-badge">Turns 25</span>
+                                </div>
+                                <button class="wish-btn"><i class="fas fa-gift"></i></button>
+                            </div>
+                            <div class="birthday-item">
+                                <div class="birthday-avatar">EJ</div>
+                                <div class="birthday-info">
+                                    <h4>Emma Johnson</h4>
+                                    <p><i class="fas fa-calendar"></i> Nov 15</p>
+                                    <span class="age-badge">Turns 30</span>
+                                </div>
+                                <button class="wish-btn"><i class="fas fa-gift"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calendar-stats">
+                        <h4>This Month</h4>
+                        <div class="stat-item">
+                            <i class="fas fa-birthday-cake"></i>
+                            <span>8 Birthdays</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-bell"></i>
+                            <span>3 Reminders Set</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>5 Wishes Sent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="calendar-main">
+                    <div class="calendar-header">
+                        <button class="nav-btn" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                        <h2 id="currentMonth">November 2025</h2>
+                        <button class="nav-btn" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <div class="calendar-grid">
+                        <div class="calendar-day-header">Sun</div>
+                        <div class="calendar-day-header">Mon</div>
+                        <div class="calendar-day-header">Tue</div>
+                        <div class="calendar-day-header">Wed</div>
+                        <div class="calendar-day-header">Thu</div>
+                        <div class="calendar-day-header">Fri</div>
+                        <div class="calendar-day-header">Sat</div>
+
+                        <!-- Calendar days will be generated by JavaScript -->
+                        <div id="calendarDays"></div>
+                    </div>
+
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot today"></span> Today
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot birthday"></span> Birthday
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot reminder"></span> Reminder Set
+                        </div>
+                    </div>
+
+                    <div class="calendar-actions">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download"></i> Export to Google Calendar
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-upload"></i> Import Birthdays
+                        </button>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-sync"></i> Sync with Contacts
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Birthday Modal -->
+    <div class="modal" id="addBirthdayModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-birthday-cake"></i> Add Birthday</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="birthdayForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Name</label>
+                        <label for="bdayName"></label><input type="text" id="bdayName" required placeholder="Enter name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Birth Date</label>
+                            <label for="bdayDate"></label><input type="date" id="bdayDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-cake-candles"></i> Birth Year (Optional)</label>
+                            <label for="bdayYear"></label><input type="number" id="bdayYear" placeholder="YYYY">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-heart"></i> Relationship</label>
+                        <label for="bdayRelation"></label><select id="bdayRelation">
+                            <option value="family">Family</option>
+                            <option value="friend">Friend</option>
+                            <option value="colleague">Colleague</option>
+                            <option value="partner">Partner</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-bell"></i> Reminder</label>
+                        <label for="bdayReminder"></label><select id="bdayReminder">
+                            <option value="0">On the day</option>
+                            <option value="1">1 day before</option>
+                            <option value="3">3 days before</option>
+                            <option value="7">1 week before</option>
+                            <option value="14">2 weeks before</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-sticky-note"></i> Notes (Optional)</label>
+                        <label for="bdayNotes"></label><textarea id="bdayNotes" rows="3" placeholder="Gift ideas, preferences, etc."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-save"></i> Save Birthday
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-birthday-cake"></i> Birthday Wishes Hub</h3>
+                <p>Creating magical moments with personalized birthday wishes since 2025</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="create-wish.html">Create Wish</a></li>
+                    <li><a href="voice-wishes.html">Voice Wishes</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Features</h4>
+                <ul>
+                    <li><a href="group-wishes.html">Group Wishes</a></li>
+                    <li><a href="gift-suggestions.html">Gift Ideas</a></li>
+                    <li><a href="party-planner.html">Party Planner</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Subscribe for birthday tips and inspiration</p>
+                <form class="newsletter-form">
+                    <label>
+                        <input type="email" placeholder="Your email address" required>
+                    </label>
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Birthday Wishes Hub. All rights reserved. Made with <i class="fas fa-heart"></i></p>
+        </div>
+    </footer>
+
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <h3><i class="fas fa-robot"></i> Birthday Assistant</h3>
+            <button class="chatbot-close" id="chatbotClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="bot-message">
+                <p>👋 Hi! I'm your Birthday Assistant. How can I help you create the perfect birthday wish today?</p>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <label for="chatbotInput"></label><input type="text" id="chatbotInput" placeholder="Type your message...">
+            <button id="chatbotSend"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="assets/js/calendar.js"></script>
+</body>
+</html>
