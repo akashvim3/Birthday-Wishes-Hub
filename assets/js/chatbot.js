@@ -1,22 +1,55 @@
-// ===== Chatbot Functionality =====
-const chatbotButton = document.getElementById('chatbotButton');
-const chatbotContainer = document.getElementById('chatbotContainer');
-const chatbotClose = document.getElementById('chatbotClose');
-const chatbotMessages = document.getElementById('chatbotMessages');
-const chatbotInput = document.getElementById('chatbotInput');
-const chatbotSend = document.getElementById('chatbotSend');
+// ===== Enhanced Chatbot Functionality =====
+let chatbotInitialized = false;
 
-// Toggle Chatbot
-chatbotButton.addEventListener('click', () => {
-    chatbotContainer.classList.toggle('active');
-    if (chatbotContainer.classList.contains('active')) {
-        chatbotInput.focus();
+// Initialize chatbot when DOM is ready
+function initializeChatbot() {
+    if (chatbotInitialized) return;
+    
+    const chatbotButton = document.getElementById('chatbotButton');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const chatbotClose = document.getElementById('chatbotClose');
+    const chatbotMessages = document.getElementById('chatbotMessages');
+    const chatbotInput = document.getElementById('chatbotInput');
+    const chatbotSend = document.getElementById('chatbotSend');
+    
+    // Check if all elements exist
+    if (!chatbotButton || !chatbotContainer || !chatbotClose || !chatbotMessages || !chatbotInput || !chatbotSend) {
+        console.warn('Chatbot: Some elements are missing, retrying...');
+        setTimeout(initializeChatbot, 100);
+        return;
     }
-});
+    
+    // Toggle Chatbot
+    chatbotButton.addEventListener('click', () => {
+        chatbotContainer.classList.toggle('active');
+        if (chatbotContainer.classList.contains('active')) {
+            setTimeout(() => chatbotInput.focus(), 300);
+        }
+    });
+    
+    chatbotClose.addEventListener('click', () => {
+        chatbotContainer.classList.remove('active');
+    });
+    
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.chatbot-container') && 
+            !e.target.closest('.chatbot-button') &&
+            chatbotContainer.classList.contains('active')) {
+            chatbotContainer.classList.remove('active');
+        }
+    });
+    
+    chatbotInitialized = true;
+    console.log('Chatbot initialized successfully');
+}
 
-chatbotClose.addEventListener('click', () => {
-    chatbotContainer.classList.remove('active');
-});
+// Initialize on DOM load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeChatbot);
+} else {
+    initializeChatbot();
+}
 
 // Chatbot Response Database
 const chatbotResponses = {
@@ -26,116 +59,32 @@ const chatbotResponses = {
         "Hey! Welcome to Birthday Wishes Hub! What can I do for you? 🎂"
     ],
     help: [
-        "I can help you:
-• Create personalized birthday wishes
-• Choose the perfect template
-• Download and share your wishes
-• Give birthday celebration ideas
-
-What would you like to do?",
-        "Here's how I can assist you:
-✨ Generate AI-powered birthday messages
-🎨 Select beautiful card designs
-📱 Share wishes on social media
-💡 Get party planning tips
-
-What interests you?"
+        "I can help you: Create personalized birthday wishes, choose the perfect template, download and share your wishes, and give birthday celebration ideas. What would you like to do?",
+        "Here's how I can assist you: Generate AI-powered birthday messages, select beautiful card designs, share wishes on social media, and get party planning tips. What interests you?"
     ],
     create: [
-        "Great! To create a birthday wish, head over to our 'Create Wish' page. You can:
-• Enter the recipient's name
-• Choose their relationship to you
-• Select the tone (funny, heartfelt, etc.)
-• Pick a beautiful theme
-
-Would you like some tips on choosing the right tone?",
-        "Creating a wish is easy! Just:
-1. Go to the Create Wish page
-2. Fill in the details
-3. Choose your favorite theme
-4. Click generate!
-
-Need help with anything specific?"
+        "Great! To create a birthday wish, head over to our 'Create Wish' page. You can enter the recipient's name, choose their relationship to you, select the tone (funny, heartfelt, etc.), and pick a beautiful theme. Would you like some tips on choosing the right tone?",
+        "Creating a wish is easy! Just go to the Create Wish page, fill in the details, choose your favorite theme, and click generate! Need help with anything specific?"
     ],
     templates: [
-        "We have amazing templates for:
-🎈 Balloons theme
-🎂 Cake theme
-🎊 Party theme
-🎁 Gifts theme
-
-Each comes with beautiful designs and animations! Which style do you prefer?",
-        "Our template collection includes:
-• Classic Celebration
-• Sweet Wishes
-• Elegant Party
-• Gift of Joy
-
-All fully customizable! Want to see them?"
+        "We have amazing templates for: Balloons theme, Cake theme, Party theme, and Gifts theme. Each comes with beautiful designs and animations! Which style do you prefer?",
+        "Our template collection includes: Classic Celebration, Sweet Wishes, Elegant Party, and Gift of Joy. All fully customizable! Want to see them?"
     ],
     tone: [
-        "We offer various tones:
-😄 Funny & Humorous
-💝 Heartfelt & Emotional
-👔 Professional
-🎮 Playful & Fun
-💪 Inspirational
-💕 Romantic
-
-Which tone matches your relationship best?",
-        "Choose a tone that fits your relationship:
-• Funny - for close friends
-• Heartfelt - for family
-• Professional - for colleagues
-• Romantic - for partners
-
-What's your preference?"
+        "We offer various tones: Funny & Humorous, Heartfelt & Emotional, Professional, Playful & Fun, Inspirational, and Romantic. Which tone matches your relationship best?",
+        "Choose a tone that fits your relationship: Funny for close friends, Heartfelt for family, Professional for colleagues, or Romantic for partners. What's your preference?"
     ],
     download: [
-        "To download your birthday wish:
-1. Create your wish
-2. Preview it
-3. Click the 'Download' button
-4. Save it as an image
-
-You can then share it anywhere! Need more help?",
+        "To download your birthday wish: Create your wish, preview it, click the 'Download' button, and save it as an image. You can then share it anywhere! Need more help?",
         "Downloading is simple! Once you've created your wish, just click the download button. Your wish will be saved as a high-quality image perfect for sharing! 📥"
     ],
     share: [
-        "You can share your wishes:
-📱 On social media (Facebook, Instagram, Twitter)
-💬 Via WhatsApp or messaging apps
-📧 Through email
-💾 Or download and print!
-
-How would you like to share?",
-        "Sharing options include:
-• Direct social media sharing
-• Copy link to clipboard
-• Download as image
-• Send via email
-
-What works best for you?"
+        "You can share your wishes on social media (Facebook, Instagram, Twitter), via WhatsApp or messaging apps, through email, or download and print! How would you like to share?",
+        "Sharing options include: Direct social media sharing, copy link to clipboard, download as image, or send via email. What works best for you?"
     ],
     ideas: [
-        "Birthday celebration ideas:
-🎉 Surprise party with friends
-🎂 Special homemade cake
-🎁 Personalized gift
-📸 Photo album of memories
-🌟 Virtual party (for distant friends)
-🍰 Dinner at favorite restaurant
-
-Need more suggestions?",
-        "Make it special with:
-• Themed decorations
-• Personalized playlist
-• Memory jar with notes
-• Scavenger hunt
-• Video messages from loved ones
-• Birthday breakfast in bed
-
-What sounds good?"
+        "Birthday celebration ideas: Surprise party with friends, special homemade cake, personalized gift, photo album of memories, virtual party (for distant friends), or dinner at favorite restaurant. Need more suggestions?",
+        "Make it special with: Themed decorations, personalized playlist, memory jar with notes, scavenger hunt, video messages from loved ones, or birthday breakfast in bed. What sounds good?"
     ],
     thanks: [
         "You're very welcome! Happy to help! 😊",
@@ -143,13 +92,7 @@ What sounds good?"
         "Anytime! Have a wonderful day! 🎂"
     ],
     default: [
-        "I'm here to help with birthday wishes! You can ask me about:
-• Creating wishes
-• Choosing templates
-• Downloading & sharing
-• Birthday ideas
-
-What would you like to know?",
+        "I'm here to help with birthday wishes! You can ask me about creating wishes, choosing templates, downloading & sharing, or birthday ideas. What would you like to know?",
         "I can help you with birthday wishes and celebrations! Try asking about templates, creating wishes, or party ideas. What interests you? 🎈"
     ]
 };
@@ -191,8 +134,7 @@ function getRandomResponse(category) {
 function addMessage(text, isUser = false) {
     const messageDiv = document.createElement('div');
     messageDiv.className = isUser ? 'user-message' : 'bot-message';
-    messageDiv.innerHTML = `<p>${text.replace(/
-/g, '<br>')}</p>`;
+    messageDiv.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`;
 
     chatbotMessages.appendChild(messageDiv);
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
@@ -223,13 +165,33 @@ function sendMessage() {
     }
 }
 
-// Event Listeners
-chatbotSend.addEventListener('click', sendMessage);
-chatbotInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        sendMessage();
+// Enhanced Event Listeners Setup
+function setupChatEvents() {
+    const chatbotSend = document.getElementById('chatbotSend');
+    const chatbotInput = document.getElementById('chatbotInput');
+    
+    if (chatbotSend && chatbotInput) {
+        // Remove existing listeners to prevent duplicates
+        const newSend = chatbotSend.cloneNode(true);
+        chatbotSend.parentNode.replaceChild(newSend, chatbotSend);
+        
+        const newInput = chatbotInput.cloneNode(true);
+        chatbotInput.parentNode.replaceChild(newInput, chatbotInput);
+        
+        // Add new listeners
+        newSend.addEventListener('click', sendMessage);
+        newInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        console.log('Chat events set up successfully');
     }
-});
+}
+
+// Set up events after initialization
+setTimeout(setupChatEvents, 100);
 
 // Quick Action Buttons (Optional Enhancement)
 function addQuickActions() {
